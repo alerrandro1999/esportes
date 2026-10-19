@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { ArrowLeft, ArrowUpRight, Check, Construction, Layers3 } from "lucide-react";
+import { getModule } from "@/lib/modules";
+
+export function DevelopmentPage({ slug, action }: { slug: string; action?: string }) {
+  const moduleInfo = getModule(slug)!;
+  const Icon = moduleInfo.icon;
+  return <div className="page-content development-page"><div className="page-heading"><div><div className="eyebrow">PARAUAPEBAS ESPORTE</div><h1>{moduleInfo.label}</h1><p>{moduleInfo.description}</p></div><span className="demo-pill"><span />Protótipo interativo</span></div><section className="development-card"><div className="development-art"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><span className="development-icon"><Icon size={44} strokeWidth={1.4}/></span><span className="construction-icon"><Construction size={22}/></span></div><span className="development-label"><span /> EM DESENVOLVIMENTO</span><h2>{action === "novo" ? "O próximo evento começa aqui." : "Mais possibilidades para o esporte."}</h2><p>Este módulo faz parte da proposta da plataforma e será disponibilizado nas próximas etapas do projeto.</p><div className="planned-features">{moduleInfo.features.map(feature => <div key={feature}><Check size={16}/>{feature}</div>)}</div><Link href="/" className="button button-primary"><ArrowLeft size={17}/>Voltar para a visão geral</Link><small className="development-note">Apresentação de interface · Nenhuma informação é enviada ou armazenada.</small></section><div className="development-bottom"><Layers3 size={22}/><div><strong>Uma plataforma. Todo o esporte da cidade.</strong><p>Explore os menus para conhecer os módulos previstos para a gestão municipal.</p></div><Link href="/portal">Portal do cidadão<ArrowUpRight size={16}/></Link></div></div>;
+}

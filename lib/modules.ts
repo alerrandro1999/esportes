@@ -1,0 +1,25 @@
+import { LayoutDashboard, CalendarDays, Trophy, UsersRound, Shirt, Medal, MapPin, ClipboardList, Flag, ChartNoAxesCombined, FileText, Settings2, CircleHelp, Globe, Bell, UserRound, type LucideIcon } from "lucide-react";
+
+export type Module = { slug: string; label: string; icon: LucideIcon; group: string; description: string; features: string[]; badge?: string };
+
+export const modules: Module[] = [
+  { slug: "", label: "Visão geral", icon: LayoutDashboard, group: "PRINCIPAL", description: "Todos os movimentos do esporte municipal em um só lugar.", features: [] },
+  { slug: "eventos", label: "Eventos esportivos", icon: CalendarDays, group: "PRINCIPAL", description: "Planeje o calendário esportivo da cidade, da primeira inscrição à entrega das medalhas.", features: ["Calendário e criação de eventos", "Regulamentos e categorias", "Programação e equipe de apoio"] },
+  { slug: "competicoes", label: "Competições", icon: Trophy, group: "PRINCIPAL", description: "Organize campeonatos, torneios e circuitos para todas as modalidades.", features: ["Grupos e sorteio de confrontos", "Tabelas e fases eliminatórias", "Súmulas e classificação"] },
+  { slug: "inscricoes", label: "Inscrições", icon: ClipboardList, group: "PRINCIPAL", badge: "12", description: "Acompanhe as inscrições individuais e por equipe em cada evento municipal.", features: ["Análise de inscrições", "Conferência de documentos", "Vagas e listas de espera"] },
+  { slug: "atletas", label: "Atletas", icon: UsersRound, group: "GESTÃO ESPORTIVA", description: "Um cadastro único para acompanhar a trajetória de cada atleta de Parauapebas.", features: ["Cadastro e categorias de atletas", "Responsáveis e documentação", "Histórico de participações"] },
+  { slug: "equipes", label: "Equipes e técnicos", icon: Shirt, group: "GESTÃO ESPORTIVA", description: "Conecte equipes, comissões técnicas e atletas às competições municipais.", features: ["Cadastro de equipes", "Elencos e comissões técnicas", "Vínculos e transferências"] },
+  { slug: "modalidades", label: "Modalidades", icon: Medal, group: "GESTÃO ESPORTIVA", description: "Configure as modalidades e suas categorias para um esporte cada vez mais inclusivo.", features: ["Modalidades e regras", "Categorias e faixas etárias", "Paradesporto e atividades inclusivas"] },
+  { slug: "espacos", label: "Espaços esportivos", icon: MapPin, group: "GESTÃO ESPORTIVA", description: "Tenha uma visão integrada dos campos, quadras e espaços esportivos da cidade.", features: ["Cadastro de instalações", "Agenda e reservas", "Disponibilidade e manutenção"] },
+  { slug: "arbitragem", label: "Arbitragem", icon: Flag, group: "GESTÃO ESPORTIVA", description: "Organize os profissionais e as escalas que fazem cada competição acontecer.", features: ["Cadastro de árbitros", "Escalas por competição", "Disponibilidade dos profissionais"] },
+  { slug: "resultados", label: "Resultados", icon: ChartNoAxesCombined, group: "GESTÃO ESPORTIVA", description: "Reúna placares, tempos e classificações de todas as competições.", features: ["Placares e classificação", "Importação de tempos de corridas", "Recordes e histórico esportivo"] },
+  { slug: "relatorios", label: "Relatórios", icon: ChartNoAxesCombined, group: "ADMINISTRAÇÃO", description: "Transforme a participação esportiva em informação para o planejamento municipal.", features: ["Indicadores por bairro e modalidade", "Participação e ocupação de espaços", "Exportação de relatórios"] },
+  { slug: "documentos", label: "Documentos", icon: FileText, group: "ADMINISTRAÇÃO", description: "Centralize os documentos que apoiam a organização do esporte municipal.", features: ["Regulamentos e termos", "Modelos de documentos", "Certificados de participação"] },
+  { slug: "configuracoes", label: "Configurações", icon: Settings2, group: "ADMINISTRAÇÃO", description: "Personalize a plataforma para a rotina da Secretaria de Esportes e Lazer.", features: ["Usuários e perfis de acesso", "Preferências da secretaria", "Identidade e notificações"] },
+  { slug: "ajuda", label: "Central de ajuda", icon: CircleHelp, group: "OUTROS", description: "Encontre orientações para a gestão do esporte municipal.", features: ["Guias de utilização", "Perguntas frequentes", "Canais de suporte"] },
+  { slug: "portal", label: "Portal do cidadão", icon: Globe, group: "OUTROS", description: "A porta de entrada da população para os eventos e oportunidades do esporte municipal.", features: ["Calendário público de eventos", "Inscrições e acompanhamento", "Resultados e regulamentos públicos"] },
+  { slug: "notificacoes", label: "Notificações", icon: Bell, group: "OUTROS", description: "Acompanhe avisos e atualizações da gestão esportiva.", features: ["Avisos de inscrições", "Lembretes do calendário", "Preferências de comunicação"] },
+  { slug: "perfil", label: "Meu perfil", icon: UserRound, group: "OUTROS", description: "Gerencie suas informações de acesso à plataforma.", features: ["Informações do perfil", "Preferências de acesso", "Dados da secretaria"] },
+];
+
+export function getModule(slug: string) { return modules.find(item => item.slug === slug); }
